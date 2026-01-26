@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ProjectCard from "./project-card";
 import type { Project } from "../types";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const DUMMY_PROJECTS: Project[] = [
   {
@@ -55,14 +59,39 @@ const DUMMY_PROJECTS: Project[] = [
 ];
 
 const ProjectsSection: React.FC = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".project-card", {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        stagger: 0.2, // Animate each card with a slight delay
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%", // When the top of the section is 80% down the viewport
+          end: "bottom top",
+          toggleActions: "play none none none", // Play animation once
+          // markers: true, // For debugging
+        },
+      });
+    }, sectionRef); // <- Scope!
+
+    return () => ctx.revert(); // Cleanup!
+  }, []);
+
   return (
-    <section className="py-16 w-full max-w-6xl px-4 mx-auto">
+    <section className="py-16 w-full max-w-6xl px-4 mx-auto" ref={sectionRef}>
       <h2 className="text-5xl font-bold text-center text-white mb-10">
         Projects
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {DUMMY_PROJECTS.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <div key={project.id} className="project-card">
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
     </section>
