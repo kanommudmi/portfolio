@@ -26,7 +26,7 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-black opacity-70"></div>
       </div>
       <div className="relative z-20">
-        <Header /> {/* Integrate the Header component */}
+        <Header />
       </div>
       <main className="relative z-10 container mx-auto px-4 flex-1">
         <Routes>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import ProjectsSection from "../components/projects-section";
-import type { Project } from "../types";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -70,7 +69,10 @@ const PortfolioPage: React.FC = () => {
       <ProjectsSection />
 
       {/* Technical Skills Section */}
-      <section className="rounded-lg py-16 mb-10 w-full max-w-4xl px-4 bg-gray-100 dark:bg-gray-900" ref={skillsRef}>
+      <section
+        className="rounded-lg py-16 mb-10 w-full max-w-4xl px-4 bg-gray-100 dark:bg-gray-900"
+        ref={skillsRef}
+      >
         <h2 className="text-4xl font-bold text-center mb-12">
           Technical Skills
         </h2>
