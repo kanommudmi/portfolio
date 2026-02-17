@@ -79,10 +79,10 @@ const PortfolioPage: React.FC = () => {
         <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg">
           <li className="skill-item">React</li>
           <li className="skill-item">Node.js</li>
-          <li className="skill-item">TypeScript</li>
+          <li className="skill-item">Express</li>
           <li className="skill-item">Tailwind CSS</li>
-          <li className="skill-item">Database</li>
-          <li className="skill-item">Cloud</li>
+          <li className="skill-item">MongoDB</li>
+          <li className="skill-item">Git, Github</li>
         </ul>
       </section>
     </div>
