@@ -3,17 +3,18 @@ import type { Project } from "../types";
 export const DUMMY_PROJECTS: Project[] = [
   {
     id: "1",
-    image: "https://placehold.co/600x400/1E293B/E2E8F0?text=Zenith+Preview",
-    title: "Zenith",
+    image: "https://placehold.co/600x400/1E293B/E2E8F0?text=Sleepy+Monkey+Hotel",
+    title: "Sleepy Monkey Hotel",
     description:
-      "A decentralized music application enabling artists to mint and sell their music as NFTs.",
-    technologies: ["Solidity", "Polygon", "Ethereum", "IPFS"],
+      "A modern hotel booking website built with React, featuring room browsing, reservation system, and responsive design.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
     features: [
-      "Built for 150+ artists to mint and sell NFTs with Solidity and IPFS",
-      "Enabled 300+ transactions and 30% faster monetization via Polygon",
+      "Built a responsive hotel booking interface with room browsing and filtering",
+      "Implemented booking system with modern UI/UX design principles",
     ],
-    viewDetailsLink: "#",
-    githubLink: "#",
+    viewDetailsLink: "https://github.com/Pannnomaly/GroupProject-6-React",
+    githubLink: "https://github.com/Pannnomaly/GroupProject-6-React",
+    liveDemoLink: "https://group-project-6-react.vercel.app/",
   },
   {
     id: "2",
