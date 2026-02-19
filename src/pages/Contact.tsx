@@ -245,12 +245,12 @@ const Contact: React.FC = () => {
                       GitHub
                     </p>
                     <a
-                      href="https://github.com/your-github"
+                      href="https://github.com/kanommudmi"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
-                      github.com/your-github
+                      github.com/kanommudmi
                     </a>
                   </div>
                 </div>
@@ -261,12 +261,12 @@ const Contact: React.FC = () => {
                       LinkedIn
                     </p>
                     <a
-                      href="https://linkedin.com/in/your-linkedin"
+                      href="https://www.linkedin.com/in/anuvut-hoonchat"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
-                      linkedin.com/in/your-linkedin
+                      linkedin.com/in/anuvut-hoonchat
                     </a>
                   </div>
                 </div>
@@ -275,10 +275,10 @@ const Contact: React.FC = () => {
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
                     <a
-                      href="mailto:your.email@example.com"
+                      href="mailto:anuvut.hoon@gmail.com"
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
-                      your.email@example.com
+                      anuvut-hoonchat@gmail.com
                     </a>
                   </div>
                 </div>
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                   <div>
                     <p className="text-sm font-medium text-foreground">Phone</p>
                     <span className="text-muted-foreground text-sm">
-                      +18575766733
+                      +66 926316803
                     </span>
                   </div>
                 </div>
@@ -298,7 +298,7 @@ const Contact: React.FC = () => {
                       Current Location
                     </p>
                     <span className="text-muted-foreground text-sm">
-                      Boston, Massachusetts, USA
+                      Mueang Nakhon Ratchasima District, Nakhon Ratchasima (Korat)
                     </span>
                   </div>
                 </div>
