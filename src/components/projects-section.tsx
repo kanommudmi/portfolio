@@ -98,11 +98,26 @@ const ProjectsSection: React.FC = () => {
             className="relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg"
-            />
+            {selectedProject.liveDemoLink ? (
+              <a
+                href={selectedProject.liveDemoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                />
+              </a>
+            ) : (
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg"
+              />
+            )}
             <button
               onClick={handleCloseModal}
               className="absolute -top-4 -right-4 bg-gray-800 text-white rounded-full p-2 leading-none hover:bg-gray-700 focus:outline-none"
