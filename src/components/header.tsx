@@ -34,10 +34,10 @@ const Header: React.FC = () => {
 
         {/* Right Section: Search and Theme Toggle */}
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">Search</span>
-          </Button>
+          {/* <Button variant="ghost" size="icon"> */}
+          {/*   <Search className="h-5 w-5" /> */}
+          {/*   <span className="sr-only">Search</span> */}
+          {/* </Button> */}
           <ModeToggle />
         </div>
       </div>

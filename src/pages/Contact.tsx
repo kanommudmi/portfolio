@@ -1,11 +1,21 @@
-import React, { useEffect, useRef } from "react";
-import { Mail, Github, Linkedin, Twitter, Phone, MapPin } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Twitter,
+  Phone,
+  MapPin,
+  Loader2,
+} from "lucide-react";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +24,59 @@ const Contact: React.FC = () => {
   const connectSectionRef = useRef(null);
   const formRef = useRef(null);
   const detailsRef = useRef(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // TODO: Replace with your actual EmailJS Service ID, Template ID, and Public Key
+    const serviceId = "service_knwhc3o";
+    const templateId = "template_jua5xm9";
+    const publicKey = "04EuhxX36Kt3_1kc7";
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        publicKey,
+      );
+
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -73,7 +136,6 @@ const Contact: React.FC = () => {
           toggleActions: "play none none none",
         },
       });
-
     });
 
     return () => ctx.revert();
@@ -93,7 +155,10 @@ const Contact: React.FC = () => {
         </section>
 
         {/* Connect Section */}
-        <section className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8" ref={connectSectionRef}>
+        <section
+          className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8"
+          ref={connectSectionRef}
+        >
           <h2 className="mb-8 text-center text-3xl font-semibold">
             Connect With Me
           </h2>
@@ -105,10 +170,16 @@ const Contact: React.FC = () => {
                 Fill out the form below and I'll get back to you as soon as
                 possible.
               </p>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="John Doe" />
+                  <Input
+                    id="name"
+                    placeholder="John Doe"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div>
                   <Label htmlFor="email">Email</Label>
@@ -116,11 +187,19 @@ const Contact: React.FC = () => {
                     id="email"
                     type="email"
                     placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
                 <div>
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project Inquiry" />
+                  <Input
+                    id="subject"
+                    placeholder="Project Inquiry"
+                    value={formData.subject}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div>
                   <Label htmlFor="message">Message</Label>
@@ -128,10 +207,26 @@ const Contact: React.FC = () => {
                     id="message"
                     placeholder="I'd like to discuss a project opportunity..."
                     rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message <Mail className="ml-2 h-4 w-4" />
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      Sending...{" "}
+                      <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send Message <Mail className="ml-2 h-4 w-4" />
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
@@ -150,12 +245,12 @@ const Contact: React.FC = () => {
                       GitHub
                     </p>
                     <a
-                      href="https://github.com/your-github"
+                      href="https://github.com/kanommudmi"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
-                      github.com/your-github
+                      github.com/kanommudmi
                     </a>
                   </div>
                 </div>
@@ -166,12 +261,12 @@ const Contact: React.FC = () => {
                       LinkedIn
                     </p>
                     <a
-                      href="https://linkedin.com/in/your-linkedin"
+                      href="https://www.linkedin.com/in/anuvut-hoonchat"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
-                      linkedin.com/in/your-linkedin
+                      linkedin.com/in/anuvut-hoonchat
                     </a>
                   </div>
                 </div>
@@ -180,10 +275,10 @@ const Contact: React.FC = () => {
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
                     <a
-                      href="mailto:your.email@example.com"
+                      href="mailto:anuvut.hoon@gmail.com"
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
-                      your.email@example.com
+                      anuvut-hoonchat@gmail.com
                     </a>
                   </div>
                 </div>
@@ -192,7 +287,7 @@ const Contact: React.FC = () => {
                   <div>
                     <p className="text-sm font-medium text-foreground">Phone</p>
                     <span className="text-muted-foreground text-sm">
-                      +18575766733
+                      +66 926316803
                     </span>
                   </div>
                 </div>
@@ -203,7 +298,7 @@ const Contact: React.FC = () => {
                       Current Location
                     </p>
                     <span className="text-muted-foreground text-sm">
-                      Boston, Massachusetts, USA
+                      Mueang Nakhon Ratchasima District, Nakhon Ratchasima (Korat)
                     </span>
                   </div>
                 </div>
