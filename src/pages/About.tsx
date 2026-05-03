@@ -1,16 +1,25 @@
-import React, { useEffect, useRef } from 'react';
-import { Award, Briefcase, Code, GraduationCap, Heart } from 'lucide-react'; // Example icons
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from "react";
+import {
+  Award,
+  Briefcase,
+  Code,
+  GraduationCap,
+  Globe,
+  Heart,
+} from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About: React.FC = () => {
   const heroRef = useRef(null);
   const introRef = useRef(null);
+  const workRef = useRef(null);
   const skillsRef = useRef(null);
   const educationRef = useRef(null);
   const interestsRef = useRef(null);
+  const languagesRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -19,14 +28,14 @@ const About: React.FC = () => {
         opacity: 0,
         y: -50,
         duration: 1,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
       gsap.from(heroRef.current.children, {
         opacity: 0,
         y: 20,
         duration: 0.8,
         stagger: 0.2,
-        ease: 'power2.out',
+        ease: "power2.out",
         delay: 0.5,
       });
 
@@ -35,11 +44,11 @@ const About: React.FC = () => {
         opacity: 0,
         y: 50,
         duration: 0.8,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
           trigger: introRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       });
 
@@ -48,11 +57,11 @@ const About: React.FC = () => {
         opacity: 0,
         y: 50,
         duration: 0.8,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
           trigger: skillsRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       });
       gsap.from(".skill-tag", {
@@ -68,16 +77,29 @@ const About: React.FC = () => {
         },
       });
 
+      // Work Experience Section Animation
+      gsap.from(workRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: workRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
       // Education Section Animation
       gsap.from(educationRef.current, {
         opacity: 0,
         y: 50,
         duration: 0.8,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
           trigger: educationRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       });
 
@@ -86,11 +108,11 @@ const About: React.FC = () => {
         opacity: 0,
         y: 50,
         duration: 0.8,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
           trigger: interestsRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       });
       gsap.from(".interest-tag", {
@@ -106,6 +128,30 @@ const About: React.FC = () => {
         },
       });
 
+      // Languages Section Animation
+      gsap.from(languagesRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: languagesRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".lang-tag", {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: languagesRef.current,
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
+      });
     });
 
     return () => ctx.revert();
@@ -120,38 +166,119 @@ const About: React.FC = () => {
             About Me
           </h1>
           <p className="mt-4 text-lg text-muted-foreground sm:text-xl max-w-3xl mx-auto">
-            Passionate software engineer with a knack for building scalable and
-            efficient web applications.
+            Motivated Junior Software Developer with a background in Civil
+            Engineering and hands-on experience in computer repair. Recently
+            graduated from Generation Bootcamp, specializing in the MERN stack.
           </p>
         </section>
 
         {/* Introduction Section */}
-        <section className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8" ref={introRef}>
+        <section
+          className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8"
+          ref={introRef}
+        >
           <h2 className="mb-6 text-center text-3xl font-semibold">Who I Am</h2>
           <div className="prose mx-auto max-w-4xl text-muted-foreground">
             <p>
-              Hello! I'm Anuvut Hoonchat, a dedicated software engineer with a strong foundation in modern web technologies. My journey into software development began with a fascination for problem-solving and creating impactful digital experiences. I thrive in environments where I can continuously learn and apply new skills to overcome technical challenges.
+              Hello! I'm Anuvut Hoonchat, a Junior Software Developer with a
+              unique background that blends Civil Engineering and hands-on IT
+              experience. My journey into software development began with a
+              career shift — after working in construction and computer repair,
+              I decided to pursue my passion for coding by joining the
+              Generation Thailand Bootcamp.
             </p>
             <p className="mt-4">
-              Over the years, I've had the privilege of working on diverse projects, ranging from developing robust backend systems to crafting intuitive user interfaces. I believe in writing clean, maintainable, and efficient code that stands the test of time. My expertise spans across various programming languages and frameworks, always with an eye towards best practices and emerging trends.
+              During the bootcamp, I specialized in the MERN stack (MongoDB,
+              Express, React, Node.js) and gained practical experience building
+              full-stack web applications. I thrive in environments where I can
+              continuously learn and apply new skills to overcome technical
+              challenges.
             </p>
             <p className="mt-4">
-              Outside of coding, I enjoy exploring new technologies, contributing to open-source projects, and staying active through various hobbies. I'm always eager to connect with fellow enthusiasts and collaborate on exciting ventures.
+              I believe in writing clean, maintainable code and I'm always eager
+              to learn new technologies. My diverse background has taught me
+              adaptability, strong problem-solving skills, and the importance of
+              teamwork — qualities I bring to every project I work on.
             </p>
+          </div>
+        </section>
+
+        {/* Work Experience Section */}
+        <section
+          className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8"
+          ref={workRef}
+        >
+          <h2 className="mb-6 flex items-center justify-center text-3xl font-semibold">
+            <Briefcase className="mr-3 h-8 w-8 text-yellow-400" /> Work
+            Experience
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold">Work in South Korea</h3>
+              <p className="text-sm text-muted-foreground">
+                Nov 2014 - Jul 2025
+              </p>
+              <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
+                <li>
+                  Packing, sorting, and picking fruits (apples, grapes,
+                  strawberries)
+                </li>
+                <li>
+                  Planting, watering, fertilizing, and general farm maintenance
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold">
+                Computer Technician (IT Technician)
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Jan 2011 - Feb 2012
+              </p>
+              <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
+                <li>Cleaning and maintaining hardware</li>
+                <li>Upgrading RAM and SSD</li>
+                <li>Installing Windows and applications</li>
+                <li>Fixing system errors and boot issues</li>
+                <li>Data backup and recovery</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold">
+                Civil Engineering Internship
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Oct 2010 - Jan 2010
+              </p>
+              <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
+                <li>
+                  Inspected construction work and read construction drawings
+                </li>
+                <li>Coordinated with foremen and contractors</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         <div className="mx-auto max-w-7xl grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Skills Section */}
-          <section className="rounded-xl border bg-card p-6 shadow-sm md:p-8" ref={skillsRef}>
+          <section
+            className="rounded-xl border bg-card p-6 shadow-sm md:p-8"
+            ref={skillsRef}
+          >
             <h2 className="mb-6 flex items-center justify-center text-3xl font-semibold">
               <Code className="mr-3 h-8 w-8 text-blue-400" /> My Skills
             </h2>
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'Go',
-                'Tailwind CSS', 'GraphQL', 'REST APIs', 'SQL', 'NoSQL', 'AWS', 'Docker',
-                'Kubernetes', 'Git', 'CI/CD',
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React",
+                "Express",
+                "Node.js",
+                "MongoDB",
+                "Tailwind CSS",
               ].map((skill) => (
                 <span
                   key={skill}
@@ -164,37 +291,96 @@ const About: React.FC = () => {
           </section>
 
           {/* Education Section */}
-          <section className="rounded-xl border bg-card p-6 shadow-sm md:p-8" ref={educationRef}>
+          <section
+            className="rounded-xl border bg-card p-6 shadow-sm md:p-8"
+            ref={educationRef}
+          >
             <h2 className="mb-6 flex items-center justify-center text-3xl font-semibold">
-              <GraduationCap className="mr-3 h-8 w-8 text-green-400" /> Education
+              <GraduationCap className="mr-3 h-8 w-8 text-green-400" />{" "}
+              Education
             </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold">Bachelor of Science in Computer Science</h3>
-                <p className="text-muted-foreground">University Name, City, State</p>
-                <p className="mt-1 text-sm text-muted-foreground">Graduated: May 20XX</p>
-                <p className="text-sm text-muted-foreground">Relevant Coursework: Data Structures, Algorithms, Web Development, Database Management</p>
+                <h3 className="text-xl font-semibold">
+                  Junior Software Developer Bootcamp
+                </h3>
+                <p className="text-muted-foreground">Generation Thailand</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Oct 2025 - Jan 2026
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Built full-stack web applications using React,
+                  Node.js/Express, and MongoDB with Mongoose. Created MERN Stack
+                  CRUD projects with React (React Router, Axios), Express REST
+                  API, and MongoDB via Mongoose.
+                </p>
               </div>
-              {/* Add more education entries if needed */}
+              <div>
+                <h3 className="text-xl font-semibold">
+                  Bachelor in Civil Engineering
+                </h3>
+                <p className="text-muted-foreground">
+                  Rajamangala University of Technology Isan
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Aug 2007 - Oct 2010
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Focused on designing, constructing, and maintaining
+                  infrastructure such as buildings, roads, bridges, dams, and
+                  water systems.
+                </p>
+              </div>
             </div>
           </section>
         </div>
 
         {/* Interests Section */}
-        <section className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8" ref={interestsRef}>
+        <section
+          className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8"
+          ref={interestsRef}
+        >
           <h2 className="mb-6 flex items-center justify-center text-3xl font-semibold">
             <Heart className="mr-3 h-8 w-8 text-red-400" /> Interests
           </h2>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              'Machine Learning',
-              'Photography',
-              'Hiking',
-              'Reading Sci-Fi',
-              'Gaming',
+              "programming",
+              "movies",
+              "Technology",
+              "blockchain",
+              "Gaming",
+              "investing",
             ].map((interest) => (
-              <span key={interest} className="interest-tag rounded-md bg-muted px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70">
+              <span
+                key={interest}
+                className="interest-tag rounded-md bg-muted px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70"
+              >
                 {interest}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Languages Section */}
+        <section
+          className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8"
+          ref={languagesRef}
+        >
+          <h2 className="mb-6 flex items-center justify-center text-3xl font-semibold">
+            <Globe className="mr-3 h-8 w-8 text-blue-400" /> Languages
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "Thai (Native Language)",
+              "English (Basic)",
+              "Korean (Level 2 - Beginner)",
+            ].map((lang) => (
+              <span
+                key={lang}
+                className="lang-tag rounded-md bg-muted px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70"
+              >
+                {lang}
               </span>
             ))}
           </div>
