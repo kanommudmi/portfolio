@@ -1,10 +1,11 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import PortfolioPage from "./pages/PortfolioPage";
-import Experience from "./pages/Experience";
-import Projects from "./pages/Projects";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
+const Experience = lazy(() => import("./pages/Experience"));
+const Projects = lazy(() => import("./pages/Projects"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
 import Layout from "./components/Layout";
 
 const router = createBrowserRouter([
@@ -12,11 +13,61 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <PortfolioPage /> },
-      { path: "about", element: <About /> },
-      { path: "experience", element: <Experience /> },
-      { path: "projects", element: <Projects /> },
-      { path: "contact", element: <Contact /> },
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<div className="flex min-h-screen items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+          </div>}
+          >
+            <PortfolioPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "about",
+        element: (
+          <Suspense fallback={<div className="flex min-h-screen items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+          </div>}
+          >
+            <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: "experience",
+        element: (
+          <Suspense fallback={<div className="flex min-h-screen items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+          </div>}
+          >
+            <Experience />
+          </Suspense>
+        ),
+      },
+      {
+        path: "projects",
+        element: (
+          <Suspense fallback={<div className="flex min-h-screen items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+          </div>}
+          >
+            <Projects />
+          </Suspense>
+        ),
+      },
+      {
+        path: "contact",
+        element: (
+          <Suspense fallback={<div className="flex min-h-screen items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+          </div>}
+          >
+            <Contact />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
