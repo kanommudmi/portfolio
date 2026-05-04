@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
         {/* Social Media Links */}
         <div className="flex justify-center space-x-6">
           <a
-            href="https://github.com/your-github"
+            href="https://github.com/kanommudmi"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
             <Github className="h-5 w-5" />
           </a>
           <a
-            href="https://linkedin.com/in/your-linkedin"
+            href="https://www.linkedin.com/in/anuvut-hoonchat"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
             <Linkedin className="h-5 w-5" />
           </a>
           <a
-            href="https://twitter.com/your-twitter"
+            href="https://x.com/stemm2220"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             <Twitter className="h-5 w-5" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:anuvut.hoon@gmail.com"
             className="text-muted-foreground hover:text-primary transition-colors"
             aria-label="Email"
           >

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import {
-  Award,
-  Briefcase,
   Code,
   GraduationCap,
   Globe,
@@ -15,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 const About: React.FC = () => {
   const heroRef = useRef(null);
   const introRef = useRef(null);
-  const workRef = useRef(null);
   const skillsRef = useRef(null);
   const educationRef = useRef(null);
   const interestsRef = useRef(null);
@@ -73,19 +70,6 @@ const About: React.FC = () => {
         scrollTrigger: {
           trigger: skillsRef.current,
           start: "top 75%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      // Work Experience Section Animation
-      gsap.from(workRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: workRef.current,
-          start: "top 80%",
           toggleActions: "play none none none",
         },
       });
@@ -200,63 +184,6 @@ const About: React.FC = () => {
               adaptability, strong problem-solving skills, and the importance of
               teamwork — qualities I bring to every project I work on.
             </p>
-          </div>
-        </section>
-
-        {/* Work Experience Section */}
-        <section
-          className="mx-auto max-w-7xl rounded-xl border bg-card p-6 shadow-sm md:p-8"
-          ref={workRef}
-        >
-          <h2 className="mb-6 flex items-center justify-center text-3xl font-semibold">
-            <Briefcase className="mr-3 h-8 w-8 text-yellow-400" /> Work
-            Experience
-          </h2>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold">Work in South Korea</h3>
-              <p className="text-sm text-muted-foreground">
-                Nov 2014 - Jul 2025
-              </p>
-              <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
-                <li>
-                  Packing, sorting, and picking fruits (apples, grapes,
-                  strawberries)
-                </li>
-                <li>
-                  Planting, watering, fertilizing, and general farm maintenance
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">
-                Computer Technician (IT Technician)
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Jan 2011 - Feb 2012
-              </p>
-              <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
-                <li>Cleaning and maintaining hardware</li>
-                <li>Upgrading RAM and SSD</li>
-                <li>Installing Windows and applications</li>
-                <li>Fixing system errors and boot issues</li>
-                <li>Data backup and recovery</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">
-                Civil Engineering Internship
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Oct 2010 - Jan 2010
-              </p>
-              <ul className="mt-2 list-disc list-inside text-muted-foreground space-y-1">
-                <li>
-                  Inspected construction work and read construction drawings
-                </li>
-                <li>Coordinated with foremen and contractors</li>
-              </ul>
-            </div>
           </div>
         </section>
 
