@@ -75,7 +75,7 @@ const ProjectsSection: React.FC = () => {
   return (
     <>
       <section className="py-16 w-full max-w-6xl px-4 mx-auto" ref={sectionRef}>
-        <h2 className="text-5xl font-bold text-center text-white mb-10">
+        <h2 className="text-5xl font-bold text-center text-foreground mb-10">
           Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,7 +90,7 @@ const ProjectsSection: React.FC = () => {
       {selectedProject && (
         <div
           ref={modalRef}
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 opacity-0"
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0"
           onClick={handleCloseModal}
         >
           <div
@@ -120,7 +120,7 @@ const ProjectsSection: React.FC = () => {
             )}
             <button
               onClick={handleCloseModal}
-              className="absolute -top-4 -right-4 bg-gray-800 text-white rounded-full p-2 leading-none hover:bg-gray-700 focus:outline-none"
+              className="absolute -top-4 -right-4 bg-muted text-muted-foreground rounded-full p-2 leading-none hover:bg-muted/80 focus:outline-none"
               aria-label="Close image view"
             >
               &times;

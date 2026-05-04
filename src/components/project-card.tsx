@@ -13,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   onImageClick,
 }) => {
   return (
-    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="relative overflow-hidden">
         <img
           src={project.image}
@@ -23,24 +23,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         />
       </div>
       <div className="p-6">
-        <h3 className="text-2xl font-semibold text-white mb-2">
+        <h3 className="text-2xl font-semibold text-card-foreground mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+        <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-xs font-medium"
+              className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-xs font-medium"
             >
               {tech}
             </span>
           ))}
         </div>
-        <ul className="text-gray-300 text-sm mb-6 space-y-2">
+        <ul className="text-muted-foreground text-sm mb-6 space-y-2">
           {project.features.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <ArrowUpRight className="h-4 w-4 text-gray-500 mr-2 mt-1 flex-shrink-0" />
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground mr-2 mt-1 flex-shrink-0" />
               <span>{feature}</span>
             </li>
           ))}
@@ -48,7 +48,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex items-center justify-between">
           <Button
             variant="outline"
-            className="text-white border-gray-600 hover:bg-gray-700"
+            className="text-card-foreground border-border hover:bg-muted"
             asChild
           >
             <a
@@ -65,7 +65,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -75,7 +75,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={project.liveDemoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Link className="h-5 w-5" />
               </a>

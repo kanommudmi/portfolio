@@ -58,7 +58,7 @@ const PortfolioPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-gray-900 dark:text-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen text-foreground">
       {/* Hero Section */}
       <section className="text-center py-20" ref={heroRef}>
         <h1 className="text-5xl font-bold mb-4">Anuvut Hoonchat</h1>
@@ -70,7 +70,7 @@ const PortfolioPage: React.FC = () => {
 
       {/* Technical Skills Section */}
       <section
-        className="rounded-lg py-16 mb-10 w-full max-w-4xl px-4 bg-gray-100 dark:bg-gray-900"
+        className="rounded-lg py-16 mb-10 w-full max-w-4xl px-4 bg-card"
         ref={skillsRef}
       >
         <h2 className="text-4xl font-bold text-center mb-12">

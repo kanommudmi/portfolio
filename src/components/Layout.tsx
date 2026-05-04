@@ -5,8 +5,8 @@ import Footer from "./footer";
 
 function Layout() {
   return (
-    <div className="flex flex-col min-h-screen relative bg-gray-900 text-gray-900 dark:text-gray-100">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <div className="flex flex-col min-h-screen relative bg-background text-foreground">
+      <div className="absolute inset-0 z-0 overflow-hidden dark:block hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
