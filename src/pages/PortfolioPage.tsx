@@ -6,19 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioPage: React.FC = () => {
-  const heroRef = useRef(null);
-  const skillsRef = useRef(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const skillsRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero Section Animation
-      gsap.from(heroRef.current, {
+      gsap.from(heroRef.current!, {
         opacity: 0,
         y: -50,
         duration: 1,
         ease: "power3.out",
       });
-      gsap.from(heroRef.current.children, {
+      gsap.from(heroRef.current!.children, {
         opacity: 0,
         y: 20,
         duration: 0.8,
@@ -28,13 +28,13 @@ const PortfolioPage: React.FC = () => {
       });
 
       // Technical Skills Section Animation
-      gsap.from(skillsRef.current.children, {
+      gsap.from(skillsRef.current!.children, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: skillsRef.current,
+          trigger: skillsRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
@@ -47,7 +47,7 @@ const PortfolioPage: React.FC = () => {
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: skillsRef.current,
+          trigger: skillsRef.current!,
           start: "top 75%",
           toggleActions: "play none none none",
         },

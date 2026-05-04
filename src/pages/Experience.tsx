@@ -42,19 +42,19 @@ const workExperience: ExperienceItem[] = [
 ];
 
 const Experience: React.FC = () => {
-  const heroRef = useRef(null);
-  const workRef = useRef(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const workRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero Section Animation
-      gsap.from(heroRef.current, {
+      gsap.from(heroRef.current!, {
         opacity: 0,
         y: -50,
         duration: 1,
         ease: 'power3.out',
       });
-      gsap.from(heroRef.current.children, {
+      gsap.from(heroRef.current!.children, {
         opacity: 0,
         y: 20,
         duration: 0.8,
@@ -64,13 +64,13 @@ const Experience: React.FC = () => {
       });
 
       // Work Experience Section Animation
-      gsap.from(workRef.current, {
+      gsap.from(workRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: workRef.current,
+          trigger: workRef.current!,
           start: 'top 80%',
           toggleActions: 'play none none none',
         },
@@ -82,7 +82,7 @@ const Experience: React.FC = () => {
         stagger: 0.1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: workRef.current,
+          trigger: workRef.current!,
           start: 'top 75%',
           toggleActions: 'play none none none',
         },

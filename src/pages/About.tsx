@@ -11,23 +11,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const About: React.FC = () => {
-  const heroRef = useRef(null);
-  const introRef = useRef(null);
-  const skillsRef = useRef(null);
-  const educationRef = useRef(null);
-  const interestsRef = useRef(null);
-  const languagesRef = useRef(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const introRef = useRef<HTMLElement>(null);
+  const skillsRef = useRef<HTMLElement>(null);
+  const educationRef = useRef<HTMLElement>(null);
+  const interestsRef = useRef<HTMLElement>(null);
+  const languagesRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero Section Animation
-      gsap.from(heroRef.current, {
+      gsap.from(heroRef.current!, {
         opacity: 0,
         y: -50,
         duration: 1,
         ease: "power3.out",
       });
-      gsap.from(heroRef.current.children, {
+      gsap.from(heroRef.current!.children, {
         opacity: 0,
         y: 20,
         duration: 0.8,
@@ -37,26 +37,26 @@ const About: React.FC = () => {
       });
 
       // Introduction Section Animation
-      gsap.from(introRef.current, {
+      gsap.from(introRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: introRef.current,
+          trigger: introRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
       });
 
       // Skills Section Animation
-      gsap.from(skillsRef.current, {
+      gsap.from(skillsRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: skillsRef.current,
+          trigger: skillsRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
@@ -68,33 +68,33 @@ const About: React.FC = () => {
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: skillsRef.current,
+          trigger: skillsRef.current!,
           start: "top 75%",
           toggleActions: "play none none none",
         },
       });
 
       // Education Section Animation
-      gsap.from(educationRef.current, {
+      gsap.from(educationRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: educationRef.current,
+          trigger: educationRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
       });
 
       // Interests Section Animation
-      gsap.from(interestsRef.current, {
+      gsap.from(interestsRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: interestsRef.current,
+          trigger: interestsRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
@@ -106,20 +106,20 @@ const About: React.FC = () => {
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: interestsRef.current,
+          trigger: interestsRef.current!,
           start: "top 75%",
           toggleActions: "play none none none",
         },
       });
 
       // Languages Section Animation
-      gsap.from(languagesRef.current, {
+      gsap.from(languagesRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: languagesRef.current,
+          trigger: languagesRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
@@ -131,7 +131,7 @@ const About: React.FC = () => {
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: languagesRef.current,
+          trigger: languagesRef.current!,
           start: "top 75%",
           toggleActions: "play none none none",
         },
