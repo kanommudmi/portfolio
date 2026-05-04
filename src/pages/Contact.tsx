@@ -3,7 +3,6 @@ import {
   Mail,
   Github,
   Linkedin,
-  Twitter,
   Phone,
   MapPin,
   Loader2,
@@ -20,10 +19,10 @@ import { toast } from "sonner";
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact: React.FC = () => {
-  const heroRef = useRef(null);
-  const connectSectionRef = useRef(null);
-  const formRef = useRef(null);
-  const detailsRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const connectSectionRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -81,13 +80,13 @@ const Contact: React.FC = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero Section Animation
-      gsap.from(heroRef.current, {
+      gsap.from(heroRef.current!, {
         opacity: 0,
         y: -50,
         duration: 1,
         ease: "power3.out",
       });
-      gsap.from(heroRef.current.children, {
+      gsap.from(heroRef.current!.children, {
         opacity: 0,
         y: 20,
         duration: 0.8,
@@ -97,41 +96,41 @@ const Contact: React.FC = () => {
       });
 
       // Connect Section Animation
-      gsap.from(connectSectionRef.current, {
+      gsap.from(connectSectionRef.current!, {
         opacity: 0,
         y: 50,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: connectSectionRef.current,
+          trigger: connectSectionRef.current!,
           start: "top 80%",
           toggleActions: "play none none none",
         },
       });
 
       // Stagger animation for form elements
-      gsap.from(formRef.current.children, {
+      gsap.from(formRef.current!.children, {
         opacity: 0,
         y: 20,
         duration: 0.6,
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: formRef.current,
+          trigger: formRef.current!,
           start: "top 85%",
           toggleActions: "play none none none",
         },
       });
 
       // Stagger animation for contact details
-      gsap.from(detailsRef.current.children, {
+      gsap.from(detailsRef.current!.children, {
         opacity: 0,
         y: 20,
         duration: 0.6,
         stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: detailsRef.current,
+          trigger: detailsRef.current!,
           start: "top 85%",
           toggleActions: "play none none none",
         },
